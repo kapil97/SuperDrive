@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private AuthenticationService authenticationService;
+    private final AuthenticationService authenticationService;
 
     public SecurityConfig(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
@@ -26,7 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/signup", "/css/**","/js/**").permitAll()
                 .anyRequest().authenticated();
 
-        http.formLogin().permitAll();
+        http.formLogin()
+                .loginPage("/login")
+                .permitAll();
 
         http.formLogin()
                 .defaultSuccessUrl("/home", true);
