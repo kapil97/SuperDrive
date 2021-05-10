@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/starter/cloudstorage/cloudstorage.iml" filepath="$PROJECT_DIR$/starter/cloudstorage/cloudstorage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/nd035-c1-spring-boot-basics-project-starter.iml" filepath="$PROJECT_DIR$/.idea/nd035-c1-spring-boot-basics-project-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/file-manager.iml" filepath="$PROJECT_DIR$/.idea/file-manager.iml" />
     </modules>
   </component>
 </project>
