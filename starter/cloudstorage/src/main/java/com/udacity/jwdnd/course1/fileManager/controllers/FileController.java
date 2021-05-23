@@ -58,6 +58,7 @@ public class FileController {
         MultipartFile multipartFile = newFile.getFile();
         String fileName = multipartFile.getOriginalFilename();
         System.out.println("FileName: "+fileName);
+
         if(fileName.isBlank()) {
             System.out.println("Empty File");
             model.addAttribute("result","error");
@@ -73,7 +74,7 @@ public class FileController {
             model.addAttribute("message", "File with the same name already exists, upload a different file!");
         }
         model.addAttribute("files", fileService.getAllFileNames(userId));
-        return "result";
+        return "home";
     }
 
     @GetMapping(
@@ -96,7 +97,7 @@ public class FileController {
         Integer userId = userService.getUser((authentication).getName()).getUserId();
         model.addAttribute("files", fileService.getAllFileNames(userId));
         model.addAttribute("result", "success");
-        return "result";
+        return "home";
     }
 
 

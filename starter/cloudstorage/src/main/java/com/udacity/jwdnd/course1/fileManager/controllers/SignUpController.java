@@ -30,6 +30,9 @@ public class SignUpController {
         }
 
         if (error == null) {
+            if(!isValid(user.getPassword())){
+                error = "Weak Password";
+            }
             int rowsAdded = userService.createUser(user);
             if(rowsAdded>0) {
 //                System.out.println("User has created with user name: " + userService.isUsernameAvailable(user.getUsername()));
@@ -49,4 +52,9 @@ public class SignUpController {
 
         return "signup";
     }
+    private boolean isValid(String password){
+        String regex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+        return password.matches(regex);
+    }
 }
+
